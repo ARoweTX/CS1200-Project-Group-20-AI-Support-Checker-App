@@ -1,15 +1,34 @@
-import { Text, View } from "react-native";
+import React from "react";
+import { Button, Text, TextInput, View } from "react-native";
 
 export default function Index() {
+  const [username, setUsername] = React.useState("");
+  const handlePress = () => {
+    console.log("Username submitted:", username);
+  };
   return (
     <View
       style={{
+        backgroundColor: "#F7F6F6",
         flex: 1,
         justifyContent: "center",
-        alignItems: "center",
+        alignItems: "flex-start",
       }}
     >
-      <Text>Edit app/index.tsx to edit this screen.</Text>
+      <Text>Username</Text>
+      <TextInput
+      style = {{
+        height: 40,
+        borderColor: 'gray',
+        borderWidth: 1,
+        width: 200,
+        backgroundColor: 'white',
+      }}
+      placeholder = "Username"
+      value = {username}
+      onChangeText = {setUsername}
+      />
+      <Button title = "Submit" onPress={handlePress} />
     </View>
   );
 }
