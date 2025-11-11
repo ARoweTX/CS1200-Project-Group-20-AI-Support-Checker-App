@@ -9,15 +9,16 @@ export default function Index() {
   return (
     <View
       style={{
-        backgroundColor: "#F7F6F6",
+        backgroundColor: "F7F6F6",
         flex: 1,
-        justifyContent: "center",
-        alignItems: "flex-start",
+        justifyContent: "flex-start",
+        alignItems: "center",
       }}
     >
-      <Text>Username</Text>
+      <Text style={{fontSize: 20}}>Username</Text>
       <TextInput
       style = {{
+        top: 100,
         height: 40,
         borderColor: 'gray',
         borderWidth: 1,
