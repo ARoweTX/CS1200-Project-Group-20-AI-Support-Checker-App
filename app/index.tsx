@@ -9,13 +9,13 @@ export default function Index() {
   return (
     <View
       style={{
-        backgroundColor: "F7F6F6",
+        backgroundColor: "dodgerBlue",
         flex: 1,
         justifyContent: "flex-start",
         alignItems: "center",
       }}
     >
-      <Text style={{fontSize: 20}}>Username</Text>
+      <Text style={{fontSize: 30}}>Username</Text>
       <TextInput
       style = {{
         top: 100,
