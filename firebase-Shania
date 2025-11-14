@@ -1,0 +1,42 @@
+   import React, { useState } from 'react';
+   // ... existing imports
+
+   function AIInterface({ user }) {
+     const [message, setMessage] = useState('');
+     const [response, setResponse] = useState('');
+
+     const handleSend = async () => {
+       // Example API call (replace with your AI logic)
+       const res = await fetch('https://api.openai.com/v1/chat/completions', {
+         method: 'POST',
+         headers: {
+           'Content-Type': 'application/json',
+           'Authorization': `Bearer YOUR_OPENAI_API_KEY`  // Secure this in Firebase Functions!
+         },
+         body: JSON.stringify({
+           model: 'gpt-3.5-turbo',
+           messages: [{ role: 'user', content: message }]
+         })
+       });
+       const data = await res.json();
+       setResponse(data.choices[0].message.content);
+     };
+
+     return (
+       <div>
+         <h1>Welcome, {user.email}!</h1>
+         <input 
+           value={message} 
+           onChange={(e) => setMessage(e.target.value)} 
+           placeholder="Ask your AI..." 
+         />
+         <button onClick={handleSend}>Send</button>
+         <p>AI Response: {response}</p>
+         <button onClick={() => signOut(auth)}>Logout</button>
+       </div>
+     );
+   }
+
+   export default AIInterface;
+   
+   
