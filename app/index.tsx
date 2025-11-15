@@ -15,7 +15,7 @@ export default function Index() {
 
 
      <TouchableOpacity
-       onPress={() => router.push("./melisaapp/login")}
+       onPress={() => router.push("./screens/login")}
        style={{
          backgroundColor: "blue",
          padding: 15,
@@ -29,7 +29,7 @@ export default function Index() {
 
 
      <TouchableOpacity
-       onPress={() => router.push('./melisaapp/signup')}
+       onPress={() => router.push('./screens/signup')}
        style={{
          backgroundColor: "green",
          padding: 15,
