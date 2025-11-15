@@ -1,7 +1,7 @@
-import React from "react";
-import { View, Text, TextInput, Button } from "react-native";
-import { router } from "expo-router";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { router } from "expo-router";
+import React from "react";
+import { Button, Text, TextInput, View } from "react-native";
 
 
 export default function Login() {
@@ -32,7 +32,7 @@ export default function Login() {
    await AsyncStorage.setItem("activeUser", JSON.stringify(user));
 
 
-   router.push("/melisaapp/accountHome");
+   router.push("./accountHome");
  };
 
 
@@ -102,7 +102,7 @@ export default function Login() {
          color: "blue",
          textDecorationLine: "underline",
        }}
-       onPress={() => router.push("/melisaapp/signup")}
+       onPress={() => router.push("./signup")}
      >
        Don't have an account? Sign Up
      </Text>

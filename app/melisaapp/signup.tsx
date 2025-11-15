@@ -1,12 +1,12 @@
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { router } from "expo-router";
 import React, { useState } from "react";
 import {
-  View,
   Text,
   TextInput,
   TouchableOpacity,
+  View,
 } from "react-native";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import { router } from "expo-router";
 
 export default function Signup() {
   const [username, setUsername] = useState("");
@@ -38,7 +38,7 @@ export default function Signup() {
 
     try {
       await AsyncStorage.setItem("activeUser", JSON.stringify(newUser));
-      router.push("/melisaapp/accountHome");
+      router.push("./accountHome");
     } catch (e) {
       console.log("SAVE ERROR:", e);
       setError("Could not save account.");
@@ -118,7 +118,7 @@ export default function Signup() {
         </Text>
       </TouchableOpacity>
 
-      <TouchableOpacity onPress={() => router.push("/melisaapp/login")}>
+      <TouchableOpacity onPress={() => router.push("./login")}>
         <Text style={{ textAlign: "center", fontSize: 16, color: "blue" }}>
           Already have an account? Log in
         </Text>

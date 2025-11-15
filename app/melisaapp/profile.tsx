@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { View, Text, TextInput, TouchableOpacity, Image, Alert } from "react-native";
-import * as ImagePicker from "expo-image-picker";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import * as ImagePicker from "expo-image-picker";
 import { router } from "expo-router";
+import React, { useEffect, useState } from "react";
+import { Alert, Image, Text, TextInput, TouchableOpacity, View } from "react-native";
 
 
 export default function Profile() {
@@ -146,7 +146,7 @@ export default function Profile() {
 
          {/* Go to Account Home */}
          <TouchableOpacity
-           onPress={() => router.push("/melisaapp/accountHome")}
+           onPress={() => router.push("./accountHome")}
            style={{
              backgroundColor: "purple",
              padding: 15,

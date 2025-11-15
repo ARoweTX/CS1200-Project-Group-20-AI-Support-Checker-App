@@ -1,5 +1,5 @@
-import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import { router } from "expo-router";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 
 export default function AccountHome() {
@@ -12,7 +12,7 @@ export default function AccountHome() {
      {/* SEARCH */}
      <TouchableOpacity
        style={styles.button}
-       onPress={() => router.push("/melisaapp/search")}
+       onPress={() => router.push("./search")}
      >
        <Text style={styles.buttonText}>🔍 Search Questions</Text>
      </TouchableOpacity>
@@ -21,7 +21,7 @@ export default function AccountHome() {
      {/* ASK QUESTION */}
      <TouchableOpacity
        style={styles.button}
-       onPress={() => router.push("/melisaapp/askQuestion")}
+       onPress={() => router.push("./askQuestion")}
      >
        <Text style={styles.buttonText}>❓ Ask a Question</Text>
      </TouchableOpacity>
@@ -30,7 +30,7 @@ export default function AccountHome() {
      {/* TOP ANSWERS */}
      <TouchableOpacity
        style={styles.button}
-       onPress={() => router.push("/melisaapp/topAnswers")}
+       onPress={() => router.push("./topAnswers")}
      >
        <Text style={styles.buttonText}>⭐ Top Supported Answers</Text>
      </TouchableOpacity>
@@ -39,7 +39,7 @@ export default function AccountHome() {
      {/* PROFILE (YOU REQUESTED THIS) */}
      <TouchableOpacity
        style={[styles.button, { backgroundColor: "#6a4ce2" }]}
-       onPress={() => router.push("/melisaapp/profile")}
+       onPress={() => router.push("./profile")}
      >
        <Text style={styles.buttonText}>👤 Go to Profile</Text>
      </TouchableOpacity>

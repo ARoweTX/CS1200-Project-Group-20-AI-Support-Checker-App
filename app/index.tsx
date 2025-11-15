@@ -1,5 +1,5 @@
-import { View, Text, TouchableOpacity } from "react-native";
 import { router } from "expo-router";
+import { Text, TouchableOpacity, View } from "react-native";
 
 
 export default function Index() {
@@ -15,7 +15,7 @@ export default function Index() {
 
 
      <TouchableOpacity
-       onPress={() => router.push("/melisaapp/login")}
+       onPress={() => router.push("./melisaapp/login")}
        style={{
          backgroundColor: "blue",
          padding: 15,
@@ -29,7 +29,7 @@ export default function Index() {
 
 
      <TouchableOpacity
-       onPress={() => router.push("/melisaapp/signup")}
+       onPress={() => router.push('./melisaapp/signup')}
        style={{
          backgroundColor: "green",
          padding: 15,
