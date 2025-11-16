@@ -51,6 +51,18 @@ export default function AccountHome() {
      >
        <Text style={styles.buttonText}>Reset Data</Text>
      </TouchableOpacity>
+     <TouchableOpacity
+       style={[styles.button, { backgroundColor: "#6a4ce2" }]}
+       onPress={() => router.push("./aboutUs")}
+     >
+       <Text style={styles.buttonText}> About Us </Text>
+     </TouchableOpacity>
+     <TouchableOpacity
+       style={[styles.button, { backgroundColor: "#6a4ce2" }]}
+       onPress={() => router.push("./howToUse")}
+     >
+       <Text style={styles.buttonText}> Instructions </Text>
+     </TouchableOpacity>
      
 
 
