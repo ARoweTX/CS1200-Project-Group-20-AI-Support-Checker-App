@@ -1,3 +1,4 @@
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { router } from "expo-router";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
@@ -43,6 +44,14 @@ export default function AccountHome() {
      >
        <Text style={styles.buttonText}>👤 Go to Profile</Text>
      </TouchableOpacity>
+     
+     <TouchableOpacity
+       style={[styles.button, { backgroundColor: "#6a4ce2" }]}
+       onPress={() => AsyncStorage.removeItem("ai_interactions")}
+     >
+       <Text style={styles.buttonText}>Reset Data</Text>
+     </TouchableOpacity>
+     
 
 
    </View>

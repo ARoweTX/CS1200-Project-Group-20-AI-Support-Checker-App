@@ -13,7 +13,6 @@ export default function Search() {
   }, []);
 
   async function loadEntries() {
-    console.log("Loading entries...");
     try {
       const stored = await AsyncStorage.getItem("ai_interactions");
       if (stored) {

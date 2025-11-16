@@ -14,7 +14,7 @@ export default function Details() {
         <View style={{ padding: 20 }}>
       <BackButton />
       <View style = {{ alignItems: "center"}}>
-        <Text style={{ fontSize: 18, marginTop: 10 }}>{username}</Text>
+        <Text style={{ fontSize: 18, marginTop: 10 }}>Submitted by user: {username}</Text>
         <Text style={{
             height: 40,
             width: 300,
