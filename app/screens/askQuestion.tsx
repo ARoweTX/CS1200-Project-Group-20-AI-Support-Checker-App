@@ -13,11 +13,15 @@ export default function AskQuestion() {
   const [submitted, setSubmitted] = useState(false); // Freeze flag
   const [rating, setRating] = useState(0); // Star rating
   const packageReview = async () => {
+    const user = await AsyncStorage.getItem("activeUser");
+    let username: string;
+    username = user ? JSON.parse(user).username : "Anonymous";
     const newItem = {
       question: input,
       response,
       rating: rating,
       createdAt: Date.now(),
+      username: username,
     };
 
     const existing = await AsyncStorage.getItem("ai_interactions");

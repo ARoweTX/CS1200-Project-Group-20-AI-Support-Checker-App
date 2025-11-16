@@ -1,12 +1,13 @@
 import { FontAwesome } from '@expo/vector-icons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { router } from 'expo-router';
 import React, { useEffect, useState } from "react";
-import { ScrollView, StyleSheet, Text, View } from "react-native";
+import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import BackButton from "./BackButton";
 
 
 export default function Search() {
-  const [entries, setEntries] = useState<Array<{ question: string; response: string; rating: number; createdAt: number }>>([]);
+  const [entries, setEntries] = useState<Array<{ question: string; response: string; rating: number; createdAt: number ; username: string}>>([]);
   useEffect(() => {
     loadEntries();
   }, []);
@@ -29,6 +30,7 @@ export default function Search() {
         <Text style={{ fontSize: 24, fontWeight: "bold" }}>Search Screen</Text>
         <ScrollView style={{width: '100%', height: '88%', marginTop: 20 }}>
           {entries.map((item, index) => (
+            <TouchableOpacity key={index} onPress={() => router.push({pathname: "./details", params:{username: item.username, question: item.question, response: item.response, rating: item.rating}})}>
             <View key={index} style={styles.card}>
               <Text style={styles.question}>Q: {item.question}</Text>
               <View style={{ flexDirection: "row", marginTop: 20 }}>
@@ -42,6 +44,7 @@ export default function Search() {
                 ))}
               </View>
             </View>
+            </TouchableOpacity>
           ))}
         </ScrollView>
       </View>
