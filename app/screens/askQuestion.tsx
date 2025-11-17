@@ -4,10 +4,12 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { router } from 'expo-router';
 import React, { useState } from "react";
 import { Text, TextInput, TouchableOpacity, View, } from "react-native";
+import 'react-native-get-random-values';
+import { v4 as uuidv4 } from 'uuid';
 import BackButton from "./BackButton";
 
 export default function AskQuestion() {
-  const hf = new InferenceClient('hf_xxx'); // Replace with your Hugging Face API key
+  const hf = new InferenceClient('Insert Key');
   const [input, setInput] = useState(""); // User input
   const [response, setResponse] = useState(""); // AI response
   const [submitted, setSubmitted] = useState(false); // Freeze flag
@@ -16,11 +18,13 @@ export default function AskQuestion() {
     const user = await AsyncStorage.getItem("activeUser");
     let username: string;
     username = user ? JSON.parse(user).username : "Anonymous";
+    //const uuid = await uuidv4()
+    //console.log(uuid)
     const newItem = {
+      id: uuidv4(),
       question: input,
       response,
       rating: rating,
-      createdAt: Date.now(),
       username: username,
     };
 
@@ -36,9 +40,8 @@ export default function AskQuestion() {
   const handleSend = async () => {
     if (input.trim() === "") return;
     const prompt = `Provide a concise, effective answer to the following question. Respond using complete sentences, but do not amek them too long. Use as few sentences as possible and never more than 200 words. Do not respond with anything else other than your response, and ensure your response is entirely plaintext and has newline breaks when necessary:\n\n${input}`;
-    /*
     const output = await hf.chatCompletion({
-        model: "openai/gpt-oss-120b:cheapest",
+        model: "openai/gpt-oss-120b:fastest",
         messages: [
           {
             role: "user",
@@ -47,8 +50,6 @@ export default function AskQuestion() {
         ],
       });
     setResponse(output.choices[0].message.content || "No response from model.");
-    */
-   setResponse("Placeholder"); // REMOVE THIS LINE WHEN UNCOMMENTING ABOVE
     setSubmitted(true); // Freeze after submission
   };
   return (

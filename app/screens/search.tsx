@@ -7,7 +7,7 @@ import BackButton from "./BackButton";
 
 
 export default function Search() {
-  const [entries, setEntries] = useState<Array<{ question: string; response: string; rating: number; createdAt: number ; username: string}>>([]);
+  const [entries, setEntries] = useState<Array<{ id: string; question: string; response: string; rating: number; createdAt: number ; username: string}>>([]);
   useEffect(() => {
     loadEntries();
   }, []);
@@ -28,9 +28,9 @@ export default function Search() {
       <View style={{alignItems: "center" }}>
         <Text style={{ fontSize: 24, fontWeight: "bold" }}>Search Screen</Text>
         <ScrollView style={{width: '100%', height: '88%', marginTop: 20 }}>
-          {entries.map((item, index) => (
-            <TouchableOpacity key={index} onPress={() => router.push({pathname: "./details", params:{username: item.username, question: item.question, response: item.response, rating: item.rating}})}>
-            <View key={index} style={styles.card}>
+          {entries.map((item) => (
+            <TouchableOpacity key={item.id} onPress={() => router.push({pathname: "./details", params:{username: item.username, question: item.question, response: item.response, rating: item.rating}})}>
+            <View style={styles.card}>
               <Text style={styles.question}>Q: {item.question}</Text>
               <View style={{ flexDirection: "row", marginTop: 20 }}>
               {[1, 2, 3, 4, 5].map((star) => (
